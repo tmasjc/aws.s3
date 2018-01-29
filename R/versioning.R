@@ -48,7 +48,7 @@ get_versioning <- function(bucket, ...){
 #' @export
 put_versioning <- function(bucket, status = c("Enabled", "Suspended"), ...){
     b <- paste0(
-'<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"> 
+'<VersioningConfiguration xmlns="http://s3.amazonaws.cn/doc/2006-03-01/"> 
   <Status>',match.arg(status),'</Status> 
 </VersioningConfiguration>'
 ) # note this does not currently allow MFA Delete

@@ -37,7 +37,7 @@ get_acceleration <- function(bucket, ...){
 #' @export
 put_acceleration <- function(bucket, status = c("Enabled", "Suspended"), ...){
     b <- paste0(
-'<AccelerateConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"> 
+'<AccelerateConfiguration xmlns="http://s3.amazonaws.cn/doc/2006-03-01/"> 
   <Status>',match.arg(status),'</Status> 
 </AccelerateConfiguration>')
     r <- s3HTTP(verb = "PUT", 
