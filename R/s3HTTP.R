@@ -39,7 +39,7 @@ function(verb = "GET",
          parse_response = TRUE, 
          check_region = TRUE,
          url_style = c("path", "virtual"),
-         base_url = "s3.amazonaws.com",
+         base_url = "s3.amazonaws.cn",
          verbose = getOption("verbose", FALSE),
          region = NULL, 
          key = NULL, 
@@ -214,13 +214,13 @@ function(bucketname,
          accelerate = FALSE, 
          dualstack = FALSE,
          url_style = c("path", "virtual"), 
-         base_url = "s3.amazonaws.com",
+         base_url = "s3.amazonaws.cn",
          verbose = getOption("verbose", FALSE)) 
 {
     url_style <- match.arg(url_style)
     
     # handle S3-compatible storage URLs
-    if (base_url != "s3.amazonaws.com") {
+    if (base_url != "s3.amazonaws.cn") {
         if (isTRUE(verbose) && url_style != "path") {
             message("Non-AWS base URL requested. Switching to path-style URLs.")
         }
@@ -246,16 +246,16 @@ function(bucketname,
             if (isTRUE(dualstack)) {
                 # handle accelerate
                 if (isTRUE(accelerate)) {
-                    base_url <- "s3-acclerate.dualstack.amazonaws.com"
+                    base_url <- "s3-acclerate.dualstack.amazonaws.cn"
                 } else {
-                    base_url <- "s3.dualstack.amazonaws.com"
+                    base_url <- "s3.dualstack.amazonaws.cn"
                 }
             } else {
                 # handle accelerate
                 if (isTRUE(accelerate)) {
-                    base_url <- "s3-accelerate.amazonaws.com"
+                    base_url <- "s3-accelerate.amazonaws.cn"
                 } else {
-                    base_url <- "s3.amazonaws.com"
+                    base_url <- "s3.amazonaws.cn"
                 }
             }
         } else {
@@ -263,16 +263,16 @@ function(bucketname,
             if (isTRUE(dualstack)) {
                 # handle accelerate
                 if (isTRUE(accelerate)) {
-                    base_url <- paste0("s3-accelerate.dualstack.", region, ".amazonaws.com")
+                    base_url <- paste0("s3-accelerate.dualstack.", region, ".amazonaws.cn")
                 } else {
-                    base_url <- paste0("s3.dualstack.", region, ".amazonaws.com")
+                    base_url <- paste0("s3.dualstack.", region, ".amazonaws.cn")
                 }
             } else {
                 # handle accelerate
                 if (isTRUE(accelerate)) {
-                    base_url <- paste0("s3-accelerate.amazonaws.com")
+                    base_url <- paste0("s3-accelerate.amazonaws.cn")
                 } else {
-                    base_url <- paste0("s3-", region, ".amazonaws.com")
+                    base_url <- paste0("s3-", region, ".amazonaws.cn")
                 }
             }
         }
